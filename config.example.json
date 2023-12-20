@@ -1,10 +1,10 @@
 {
   "bot_token": "000000000:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-  "database": "mysql+pymysql://root:password@localhost/rapturebot?charset=utf8mb4",
+  "database": "mysql+pymysql://bot:password123@db:3306/sergiobot?charset=utf8",
   "--webhook_domain": "your-ip-or-domain",
   "cache": {
     "redis": {
-      "host": "localhost",
+      "host": "cache",
       "port": 6379,
       "db": 0
     }
@@ -98,26 +98,12 @@
     ]
   },
 
-  "--weather_wunderground_api_key": "",
-  "--weather_darksky_api_key": "",
-  "--weather_yandex_api_key": "",
-  "--weather_debug": true,
-  "--weather_cities": {
-    "-1": [
-      ["Санкт-Петербург", "59.9387,30.3162", "Europe/Moscow", "Russia/Saint Petersburg"]
-    ],
-    "-2": [
-      ["Москва", "55.7507,37.6177", "Europe/Moscow", "Russia/Moscow"],
-      ["Сосновый Бор", "59.9042,29.0922", "Europe/Moscow", ""]
-    ]
-  },
-
   "--google_vision_client_json_file": "1234567.json",
   "cat_tag": "@username 🐈",
 
   "leha_ids": [],
   "leha_anya": [],
-  "expert_uid": 12345,
+  "expert_uid": 124434099,
   "orzik": "Твое Имя, Другое",
   "lord": "Другие, Имена, Список",
   "changelog": "Текст команды /changelog",
@@ -134,13 +120,5 @@
   "replylove__ignore_pairs": {},
 
   "--pm2_bot_repair": "/home/london/pm2_bot_repair.sh",
-  "--pm2_repair": "/home/london/pm2_repair.sh",
-
-  "--mat_notify_uids": [],
-  "--matshowtime": {
-    "channel_id": -1234
-  },
-
-  "--ktolivnul": 1234,
-  "--muzkruzhok_channel_id": -1234
+  "--pm2_repair": "/home/london/pm2_repair.sh"
 }
