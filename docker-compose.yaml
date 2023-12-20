@@ -27,6 +27,9 @@ services:
     restart: always
     ports:
       - '6379:6379'
+    # expose:
+    # # Opens port 3306 on the container
+    #   - '3306'
     # command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
     command: redis-server --loglevel warning
     volumes: 

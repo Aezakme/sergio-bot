@@ -8,6 +8,8 @@
 
 Настройте [конфиг и бд](CONFIG.md). Установите пакеты и запускайте:
 
+SQL скрипт для инициализации таблиц [тута](sergio_bot_empty.sql)
+
 ```console
 $ pip3 install -r requirements.txt
 $ python main.py
