@@ -12,6 +12,7 @@ import emoji_fixed as emoji
 import src.config as config
 from src.config import CMDS
 from src.commands.topmat import send_topmat
+from src.commands.wordle import send_wordle_stat
 from src.models.igor_weekly import IgorWeekly
 from src.models.pidor_weekly import PidorWeekly
 from src.models.reply_top import ReplyTop, ReplyLove
@@ -214,12 +215,16 @@ def weekly_stats(bot: telegram.Bot, _) -> None:
 
 def send_weekly_for_chat(bot: telegram.Bot, chat_id: int, disabled_commands: typing.List[str],
                          enabled_commands: typing.List[str], prev_monday: datetime) -> None:
-    logger.info(f'weekly_stats for chat {chat_id}')
-    send_stats(bot, chat_id, 'Стата за прошлую неделю',
-               CMDS['admins']['all_stat']['name'], prev_monday)
-    sleep(1)
+    # logger.info(f'weekly_stats for chat {chat_id}')
+    # send_stats(bot, chat_id, 'Стата за прошлую неделю',
+    #            CMDS['admins']['all_stat']['name'], prev_monday)
+    # sleep(1)
     send_stats(bot, chat_id, 'Стата за прошлую неделю',
                CMDS['admins']['silent_guys']['name'], prev_monday, tag_salo=True)
+    sleep(1)
+    send_topmat(bot, chat_id, chat_id, prev_monday)
+    sleep(1)   
+    send_wordle_stat(bot, chat_id, prev_monday)
     sleep(1)
     if 'weeklystat:top_kroshka' not in disabled_commands:
         send_top_kroshka(bot, chat_id, prev_monday)
@@ -227,14 +232,13 @@ def send_weekly_for_chat(bot: telegram.Bot, chat_id: int, disabled_commands: typ
     if 'weeklystat:pidorweekly' not in disabled_commands:
         send_pidorweekly(bot, chat_id, prev_monday)
         sleep(1)
-    if 'weeklystat:igorweekly' in enabled_commands:
-        send_igorweekly(bot, chat_id, prev_monday)
-        sleep(1)
-    send_replytop(bot, chat_id, prev_monday)
-    sleep(1)
-    send_alllove(bot, chat_id, prev_monday)
-    sleep(1)
-    send_alllove_outbound(bot, chat_id, prev_monday)
-    sleep(1)
-    send_topmat(bot, chat_id, chat_id, prev_monday)
-    sleep(1)
+    # if 'weeklystat:igorweekly' in enabled_commands:
+    #     send_igorweekly(bot, chat_id, prev_monday)
+    #     sleep(1)
+    # send_replytop(bot, chat_id, prev_monday)
+    # sleep(1)
+    # send_alllove(bot, chat_id, prev_monday)
+    # sleep(1)
+    # send_alllove_outbound(bot, chat_id, prev_monday)
+    # sleep(1)
+

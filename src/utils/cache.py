@@ -37,6 +37,18 @@ class Cache:
         return default
 
     @staticmethod
+    def getByPattern(pattern, default=None):
+        result = []
+        keys = _redis.keys(pattern)
+
+        records = {key: _redis.get(key) for key in keys}
+        
+        for key, value in records.items():
+            result.append(pickle.loads(value))
+        
+        return result
+
+    @staticmethod
     def set(key, val, time=None):
         return _redis.set(key, pickle.dumps(val), ex=time)
 
@@ -61,26 +73,27 @@ class PureCache:
 
     Из-за технических особенностей, все объекты будут сохранены как строки. Т.е. булево True станет строкой "True".
     """
-    prefix = '__pure__'
+
+    prefix = "__pure__"
 
     @staticmethod
     def get(key: str, default: Optional[str] = None) -> Optional[str]:
         """
         Всегда возвращает или None, или str. Даже если хранится число.
         """
-        cached = _pure_redis.get(f'__pure__:{key}')
+        cached = _pure_redis.get(f"__pure__:{key}")
         if cached:
             return cached
         return default
 
     @staticmethod
     def set(key: str, val, time=None) -> None:
-        _pure_redis.set(f'__pure__:{key}', val, ex=time)
+        _pure_redis.set(f"__pure__:{key}", val, ex=time)
 
     @staticmethod
     def incr(key: str, amount: int = 1) -> None:
-        _pure_redis.incr(f'__pure__:{key}', amount)
-        _pure_redis.expire(f'__pure__:{key}', USER_CACHE_EXPIRE)
+        _pure_redis.incr(f"__pure__:{key}", amount)
+        _pure_redis.expire(f"__pure__:{key}", USER_CACHE_EXPIRE)
 
     @classmethod
     def get_int(cls, key: str, default: Optional[int] = None) -> Optional[int]:
@@ -93,39 +106,44 @@ class PureCache:
         return default
 
     @classmethod
-    def append_list(cls, key: str, value: Union[str, list, tuple, Set], time=None) -> None:
+    def append_list(
+        cls, key: str, value: Union[str, list, tuple, Set], time=None
+    ) -> None:
         if isinstance(value, (list, tuple, set)):
-            _pure_redis.rpush(f'{cls.prefix}:{key}', *value)
+            _pure_redis.rpush(f"{cls.prefix}:{key}", *value)
         else:
-            _pure_redis.rpush(f'{cls.prefix}:{key}', value)
+            _pure_redis.rpush(f"{cls.prefix}:{key}", value)
         if time:
-            _pure_redis.expire(f'{cls.prefix}:{key}', time)
+            _pure_redis.expire(f"{cls.prefix}:{key}", time)
 
     @classmethod
     def add_to_list(cls, key: str, value, time=None) -> None:
         cls.append_list(key, value, time)
 
     @classmethod
-    def add_to_set(cls, key: str, value: Union[str, list, tuple, Set], time=None) -> None:
+    def add_to_set(
+        cls, key: str, value: Union[str, list, tuple, Set], time=None
+    ) -> None:
         if isinstance(value, (list, tuple, set)):
-            _pure_redis.sadd(f'{cls.prefix}:{key}', *value)
+            _pure_redis.sadd(f"{cls.prefix}:{key}", *value)
         else:
-            _pure_redis.sadd(f'{cls.prefix}:{key}', value)
+            _pure_redis.sadd(f"{cls.prefix}:{key}", value)
         if time:
-            _pure_redis.expire(f'{cls.prefix}:{key}', time)
+            _pure_redis.expire(f"{cls.prefix}:{key}", time)
 
     @classmethod
     def get_set(cls, key: str) -> Set[str]:
-        return set(_pure_redis.smembers(f'{cls.prefix}:{key}'))
+        return set(_pure_redis.smembers(f"{cls.prefix}:{key}"))
 
     @classmethod
     def get_list(cls, key: str) -> List[str]:
-        return _pure_redis.lrange(f'{cls.prefix}:{key}', 0, -1)
+        return _pure_redis.lrange(f"{cls.prefix}:{key}", 0, -1)
 
 
 cache = Cache()
 pure_cache = PureCache()
 _bot_id = None
+
 
 def bot_id():
     return _bot_id

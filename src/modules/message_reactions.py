@@ -15,6 +15,7 @@ from src.models.chat_user import ChatUser
 from src.models.igor_weekly import IgorWeekly
 from src.models.leave_collector import LeaveCollector
 from src.models.pidor_weekly import PidorWeekly
+from src.models.wordle import Wordle
 from src.models.user import User
 from src.modules.antimat.mat_notify import mat_notify
 from src.modules.bayanometer import Bayanometer
@@ -50,6 +51,7 @@ def message(bot, update):
     # instagram_video(bot, update)
     # twitter_video(bot, update)
     PidorWeekly.parse_message(update.message)
+    Wordle.parse_message(update.message)
     IgorWeekly.parse_message(update.message)
     update_stickers(bot, update)
     pure_cache.incr(f"metrics:messages:{today_str()}")

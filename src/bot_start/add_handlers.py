@@ -9,6 +9,7 @@ from src.commands.ment.ment_handler import ment_handler
 from src.modules.message_reactions import message
 from src.commands.music.music_handler import musicadd_handler, musicdel_handler, music_handler
 from src.commands.mylove import mylove, alllove, private_mylove
+from src.commands.wordle import send_wordle_stat_handler
 from src.commands.mystat import mystat, whois, private_whois, private_mystat
 from src.commands.on_off import off_cmd, off_cmd_for_user, on_cmd, on_cmd_for_user
 from src.commands.orzik import orzik, lord
@@ -127,6 +128,10 @@ def add_chat_handlers(dp):
     # dp.add_handler(CommandHandler('iban', cmd_iban, filters=cmd_filter))
 
     # dp.add_handler(CommandHandler(CMDS['hidden']['8']['name'], command_8, filters=cmd_filter))
+    
+    dp.add_handler(CommandHandler('wordle', send_wordle_stat_handler, filters=cmd_filter))
+    dp.add_handler(CommandHandler('worlde', send_wordle_stat_handler, filters=cmd_filter))
+    dp.add_handler(CommandHandler('вордли', send_wordle_stat_handler, filters=cmd_filter))
 
     # должно идти в конце
     dp.add_handler(MessageHandler(Filters.group & Filters.all, message))
