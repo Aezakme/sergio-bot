@@ -1,0 +1,114 @@
+{
+  "common": {
+    "self_stat": {
+      "name": "mystat",
+      "description": "Твоя статистика, пидор"
+    },
+    "rules": {
+      "name": "rules",
+      "description": "Правила чята"
+    },
+    "who_is": {
+      "name": "whois",
+      "description": "Чужая статистика, пидор"
+    },
+    "zayac": {
+      "name": "love",
+      "description": "Ебучий заяц"
+    },
+    "pidor": {
+      "name": "pidor",
+      "description": "Нет ты!"
+    },
+    "london": {
+      "name": "papa",
+      "description": "Батя тут"
+    },
+    "pomogite": {
+      "name": "help",
+      "description": "Список команд"
+    },
+    "hueplicator": {
+      "name": "huyamda",
+      "description": "Хуификатор"
+    },
+    "khaleesi": {
+      "name": "khaleesi",
+      "description": "Матерь драконов"
+    },
+    "orzik": {
+      "name": "slavic",
+      "description": "Назови человеку свое имя"
+    },
+    "putin": {
+      "name": "putin",
+      "description": "putin"
+    },
+    "iall": {
+      "name": "iall",
+      "description": "iall"
+    }
+  },
+  "hidden": {
+    "expert": {
+      "name": "expert",
+      "description": "None"
+    },
+    "anketa": {
+      "name": "anketa",
+      "description": "anketa"
+    },
+    "kick": {
+      "name": "kick",
+      "description": "kick"
+    },
+    "i": {
+      "name": "i",
+      "description": "Я-я-я-я-я-я"
+    }
+  },
+  "admins": {
+    "disable_command": {
+      "name": "off",
+      "description": "/off /cmd — вырубает команду на какое-то время. /off all выключает все команды"
+    },
+    "enable_command": {
+      "name": "on",
+      "description": "/on /cmd — включает команду. /on all включает все команды"
+    },
+    "disable_user": {
+      "name": "stop",
+      "description": "/stop /cmd @username — запрещает @username использовать команду /cmd"
+    },
+    "enable_user": {
+      "name": "start",
+      "description": "/stat /cmd @username — разрешает ранее запрещенную команду"
+    },
+    "top_stat": {
+      "name": "stat",
+      "description": "Топ пидоры"
+    },
+    "all_stat": {
+      "name": "allstat",
+      "description": "Вся стата"
+    },
+    "silent_guys": {
+      "name": "salo",
+      "description": "Топ стесняши"
+    },
+    "alllove": {
+      "name": "alllove",
+      "description": "Вся страсть"
+    }
+  },
+  "text_cmds": [],
+  "synonyms": {
+    "alllove": ["alove", "allove", "alllove", "allllove", "alllllove"],
+    "khaleesi": ["khaliisy", "khalisy", "khalisi", "khaliisi", "khalesi", "khaleesy", "khalesy"],
+    "huyamda": ["huyambda", "huyamba"],
+    "weather": ["p", "w", "pogoda"],
+    "music": ["m"],
+    "iall": ["iall", "alli"],
+    "hakeem": ["hakeem", "hakem", "hakim", "hakiim", "hackim", "hackeem", "huakem", "huakim", "hoakim", "hoakem", "hoakeem"]
+  }
+}

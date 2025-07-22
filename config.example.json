@@ -1,0 +1,124 @@
+{
+  "bot_token": "000000000:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "database": "mysql+pymysql://bot:password123@db:3306/sergiobot?charset=utf8",
+  "--webhook_domain": "your-ip-or-domain",
+  "cache": {
+    "redis": {
+      "host": "cache",
+      "port": 6379,
+      "db": 0
+    }
+  },
+  "logging": {
+    "file": null,
+    "format": "[%(asctime)s][%(levelname)s][%(name)s] - %(message)s",
+    "level": "INFO",
+    "src_level": "INFO"
+  },
+  "--telegram_proxy": {
+    "proxy_url": "socks5://127.0.0.1:1080",
+    "username": "",
+    "password": ""
+  },
+
+  "admins_ids": [ 1234, 1234567 ],
+  "debug_uid": 1234,
+  "off_delay": 300,
+  "top_users_num": 15,
+  "chats": {
+    "-198791234": {
+      "comment": "Chat name",
+      "enabled_commands": [
+          "bayanometer"
+      ],
+      "all_cmd": true
+    },
+    "-1": {
+      "all_cmd": false,
+      "enabled_commands": [
+        "help", "on", "off", "start", "stop",
+        "stat", "allstat", "salo", "leave", "whois", "mystat",
+        "пидор", "pidor",
+        "orzik", "сы", "putin", "pipinder", "repinder",
+        "huyamda", "khaleesi",
+        "daily_full_moon_check", "alllove",
+        "time", "bayanometer", "mylove", "welcome",
+        "weeklystat"
+      ],
+      "commands_config": {
+        "time": {
+          "sort": false
+        },
+        "welcome": {
+          "text": "Добро пожаловать в чат \n{username}!"
+        }
+      }
+    }
+  },
+
+  "time": {
+    "-1": [
+      ["Сан-Франциско", "America/Los_Angeles"],
+      ["Лондон", "Europe/London"],
+      ["Москва", "Europe/Moscow"]
+    ],
+    "-2": [
+      ["Алматы", "Asia/Almaty"],
+      ["Атырау", "Asia/Atyrau"],
+      ["Москва", "Europe/Moscow"],
+      ["Киев", "Europe/Kiev"]
+    ],
+    "-3": [
+      ["Сан-Франциско", "37.7793,-122.4192", "America/Los_Angeles", "CA/San_Francisco"],
+      ["Лондон", "51.5073,-0.1276", "Europe/London", "United Kingdom/London"],
+      ["Санкт-Петербург", "59.9387,30.3162", "Europe/Moscow", "Russia/Saint Petersburg"],
+      ["Москва", "55.7507,37.6177", "Europe/Moscow", "Russia/Moscow"],
+      ["Майкоп", "44.6062,40.1041", "Europe/Moscow", "Russia/Maykop"],
+      ["Змеиногорск", "51.1545,82.198", "Asia/Novosibirsk", "Russia/Zmeinogorsk"],
+      ["Калининград", "54.7074,20.5073", "Europe/Kaliningrad", ""],
+      ["Львов", "49.8397,24.0297", "Europe/Kiev", ""],
+      ["Киев", "50.4505,30.5235", "Europe/Kiev", ""],
+      ["Новосибирск", "55.0302,82.9204", "Asia/Novosibirsk", ""],
+      ["Феодосия", "45.031929,35.382429", "Europe/Moscow", ""]
+    ],
+    "-4": [
+      ["Москва", "55.7507,37.6177", "Europe/Moscow", "Russia/Moscow"],
+      ["Сосновый Бор", "59.9042,29.0922", "Europe/Moscow", ""],
+      ["Змеиногорск", "51.1545,82.198", "Asia/Novosibirsk", ""],
+      ["Алматы", "43.2364,76.9457", "Asia/Almaty", "Kazakhstan/Almaty"],
+      ["Гданьск", "54.3612,18.6329", "Europe/Warsaw", ""],
+      ["Тольятти", "53.5088,49.4192", "Europe/Samara", ""],
+      ["Курск", "51.7304,36.1926", "Europe/Moscow", ""],
+      ["Питер", "59.9387,30.3162", "Europe/Moscow", "Russia/Saint Petersburg"],
+      ["Ростов-на-Дону", "47.2225,39.7187", "Europe/Moscow", ""],
+      ["Екатеринбург", "56.838,60.5975", "Asia/Yekaterinburg", ""],
+      ["Сан-Франциско", "37.7793,-122.4192", "America/Los_Angeles", "CA/San_Francisco"],
+      ["Львов", "49.8397,24.0297", "Europe/Kiev", ""],
+      ["Казань", "55.7986,49.1063", "Europe/Moscow", ""]
+    ]
+  },
+
+  "--google_vision_client_json_file": "1234567.json",
+  "cat_tag": "@username 🐈",
+
+  "leha_ids": [],
+  "leha_anya": [],
+  "expert_uid": 124434099,
+  "orzik": "Твое Имя, Другое",
+  "lord": "Другие, Имена, Список",
+  "changelog": "Текст команды /changelog",
+  "--anecdotica_url": "",
+  "--dialogflow_api_token": "",
+  "anon_chat_id": -1,
+
+  "sasha_rebinder_stickersets_names": ["LINE_okamas_Alice_Series", "pisos_1000", "SpoiledRabbit17", "LifeisPotato", "STRVSFOFEV", "LINE_NEKOMIMI_MiA"],
+  "repinder_users": [],
+
+  "replylove__dragon_lovers": [],
+  "replylove__ignore": [],
+  "replylove__narcissist": [],
+  "replylove__ignore_pairs": {},
+
+  "--pm2_bot_repair": "/home/london/pm2_bot_repair.sh",
+  "--pm2_repair": "/home/london/pm2_repair.sh"
+}
